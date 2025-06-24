@@ -3,6 +3,7 @@
 Using the examples in the [repo](https://github.com/ExtropyIO/SolanaBootcamp/tree/main/examples_baremetal)
 
 1. Modify the existing msg! in example1-helloworld to log the program ID. 
+
 Adding "program_id.to_string()" to line 14 of the [example](https://github.com/circaplastic/SolanaBootcamp/blob/main/examples_baremetal/example1-helloworld/rust/src/lib.rs) produced the following logs:
 
 ```bash
@@ -19,6 +20,7 @@ Transaction executed in slot 733:
 ```
 
 2. Retrieve the total program size of example1-helloworld:
+
 **Data Length: 39776 (0x9b60) bytes**
 
 ```bash
@@ -48,4 +50,48 @@ Balance: 0.43328088 SOL
 ```
 
 4. Modify the client for example2-counter to feed an incorrect address for the greeting account to the program.
-The modification to the client can be found [here]().
+
+The modification to the client was an insertion in lines 85 and 88 of a different seed named WRONG_SEED which can be found [here](https://github.com/circaplastic/SolanaBootcamp/blob/main/examples_baremetal/example2-counter/client/main.ts); the error it produces is the following:
+
+```bash
+$ npm run call:2
+
+> solana-course@0.0.1 call:2
+> ts-node examples_baremetal/example2-counter/client/main.ts
+
+Let's increment counter for an account!
+
+local system client config location:  /home/pvepn/.config/solana/cli/config.yml
+(node:8874) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+local system client config location:  /home/pvepn/.config/solana/cli/config.yml
+Connection to cluster established: http://localhost:8899 { 'feature-set': 607245837, 'solana-core': '2.0.16' }
+Program ID account:  CUWoY9MMnFQNBx3UtF6JY8WpJNxnh6kg7JzxYWzrzGQ6
+Account A8ReBk7yjpt9BsxnXavWY923rRFrsKUJYxSkiPXoxs9w not deployed, deploying now
+Creating account A8ReBk7yjpt9BsxnXavWY923rRFrsKUJYxSkiPXoxs9w to say hello to
+SendTransactionError: Simulation failed. 
+Message: Transaction simulation failed: Error processing Instruction 0: custom program error: 0x5.
+Logs:
+[
+  "Program 11111111111111111111111111111111 invoke [1]",
+  "Create: address A8ReBk7yjpt9BsxnXavWY923rRFrsKUJYxSkiPXoxs9w does not match derived address 34Do48RDmjj1YDxBf5B3QXeXc5ZufoWjhYRWzXD7xVyJ",
+  "Program 11111111111111111111111111111111 failed: custom program error: 0x5"
+].
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+    at Connection.sendEncodedTransaction (/home/pvepn/SolanaBootcamp/node_modules/@solana/web3.js/src/connection.ts:6047:13)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.sendRawTransaction (/home/pvepn/SolanaBootcamp/node_modules/@solana/web3.js/src/connection.ts:6003:20)
+    at async Connection.sendTransaction (/home/pvepn/SolanaBootcamp/node_modules/@solana/web3.js/src/connection.ts:5991:12)
+    at async sendAndConfirmTransaction (/home/pvepn/SolanaBootcamp/node_modules/@solana/web3.js/src/utils/send-and-confirm-transaction.ts:36:21)
+    at async deployGreetAccount (/home/pvepn/SolanaBootcamp/examples_baremetal/example2-counter/client/main.ts:123:5)
+    at async main (/home/pvepn/SolanaBootcamp/examples_baremetal/example2-counter/client/main.ts:54:5) {
+  signature: '',
+  transactionMessage: 'Transaction simulation failed: Error processing Instruction 0: custom program error: 0x5',
+  transactionLogs: [
+    'Program 11111111111111111111111111111111 invoke [1]',
+    'Create: address A8ReBk7yjpt9BsxnXavWY923rRFrsKUJYxSkiPXoxs9w does not match derived address 34Do48RDmjj1YDxBf5B3QXeXc5ZufoWjhYRWzXD7xVyJ',
+    'Program 11111111111111111111111111111111 failed: custom program error: 0x5'
+  ]
+}
+```
