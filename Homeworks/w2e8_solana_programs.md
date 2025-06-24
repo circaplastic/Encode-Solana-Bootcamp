@@ -7,6 +7,7 @@ Using the examples in the [repo](https://github.com/ExtropyIO/SolanaBootcamp/tr
 '''bash
 
 ~$ solana logs
+
 Streaming transaction logs. Confirmed commitment
 Transaction executed in slot 733:
 
