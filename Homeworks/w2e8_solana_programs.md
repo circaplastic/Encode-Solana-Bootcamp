@@ -4,7 +4,7 @@ Using the examples in the [repo](https://github.com/ExtropyIO/SolanaBootcamp/tr
 
 1. Modify the existing msg! in example1-helloworld to log the program ID: "program_id.to_string()" was added to line 14 of the [code](https://github.com/circaplastic/SolanaBootcamp/blob/main/examples_baremetal/example1-helloworld/rust/src/lib.rs)
 
-'''bash
+```bash
 
 ~$ solana logs
 
