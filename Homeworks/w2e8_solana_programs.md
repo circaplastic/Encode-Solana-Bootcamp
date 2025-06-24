@@ -12,9 +12,7 @@ Streaming transaction logs. Confirmed commitment
 Transaction executed in slot 733:
 
   Signature: 22eoWV28DcqugVEDosHMpuhSJjz7wBwTm2i45Bzczgb9Jumivej8ERvqERK7PFBMqfWEedCQHq3uKyx1cC9YyuyP
-  
   Status: Ok
-  
   Log Messages:
   
     Program DLvDA1a3KscdVG5hPsNyMoRocQCoSmjbpDLUgVwdLSP5 invoke [1]
