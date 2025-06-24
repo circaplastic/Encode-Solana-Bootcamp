@@ -17,10 +17,7 @@ Transaction executed in slot 733:
   Log Messages:
   
     Program DLvDA1a3KscdVG5hPsNyMoRocQCoSmjbpDLUgVwdLSP5 invoke [1]
-    
     **Program log: [lib] Hello World Rust program entrypoint, Program ID is: DLvDA1a3KscdVG5hPsNyMoRocQCoSmjbpDLUgVwdLSP5**
-    
     Program DLvDA1a3KscdVG5hPsNyMoRocQCoSmjbpDLUgVwdLSP5 consumed 11851 of 200000 compute units
-    
     Program DLvDA1a3KscdVG5hPsNyMoRocQCoSmjbpDLUgVwdLSP5 success
     
